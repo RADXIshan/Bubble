@@ -3,10 +3,10 @@ services:
     name: fastapi-tutorial
     runtime: python
     plan: free # Free tier: 512 MB RAM, spins down after 15 min inactivity
-    buildCommand: "pip install uv && uv sync"
-    startCommand: "uv run uvicorn main:app --host 0.0.0.0 --port $PORT"
+    buildCommand: "cd backend && pip install uv && uv sync && pip install -r requirements.txt"
+    startCommand: "cd backend && uv run uvicorn main:app --host 0.0.0.0 --port $PORT"
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
       - key: CLIENT_URL
-        value: https://bubble-client-nine.vercel.app
+        value: https://bubble-client-zeta.vercel.app
